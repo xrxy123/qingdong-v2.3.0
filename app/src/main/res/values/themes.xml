@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <!-- 透明状态栏/导航栏：交给网页的 viewport-fit=cover + 安全区(env safe-area-inset)接管，
+             实现各类机型（刘海屏/挖孔屏/水滴屏/全面屏）顶部与底部完美贴合 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowBackground">#F4FBF8</item>
+    </style>
+</resources>

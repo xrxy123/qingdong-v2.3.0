@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.qingdong.fit'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.qingdong.fit'
+        minSdk 21
+        targetSdk 34
+        versionCode 5
+        versionName '2.3.0'
+    }
+
+    // 统一签名：所有构建方式（Android Studio / 本地脚本 / GitHub Actions）共用同一把密钥，
+    // 保证新版本可直接覆盖安装旧版本，无需卸载。密钥文件位于工程根目录 release-key.p12
+    // （即 app 模块的上一级目录）。alias=qingdong，store/key 密码=qingdong123。
+    signingConfigs {
+        release {
+            storeFile file('../release-key.p12')
+            storePassword 'qingdong123'
+            keyAlias 'qingdong'
+            keyPassword 'qingdong123'
+            storeType 'PKCS12'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // 使用固定的 release 签名（release-key.p12），覆盖安装不会被「签名不同」拦截。
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // 本应用为零依赖的纯前端 WebView 壳，无需额外库
+}
