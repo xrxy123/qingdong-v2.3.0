@@ -6,17 +6,17 @@ pluginManagement {
     }
 }
 
+// AGP 版本在此统一声明...
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
     }
-}
-
-// AGP 版本在此统一声明...
-plugins {
-    id 'com.android.application' version '8.5.2' apply false
 }
 
 include ':app'
