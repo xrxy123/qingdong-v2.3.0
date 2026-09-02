@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+// AGP 版本在此统一声明，供 :app 模块的 `plugins { id 'com.android.application' }` 解析。
+// 这样无需根 build.gradle 的 buildscript classpath，避免与 dependencyResolutionManagement 冲突。
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}
+
+include ':app'
